@@ -1,6 +1,6 @@
-type ExampleEntity @entity {
+type Dsa @entity {
   id: ID!
-  count: BigInt!
-  sender: Bytes! # address
+  version: BigInt!
+  address: Bytes! # address
   owner: Bytes! # address
 }
