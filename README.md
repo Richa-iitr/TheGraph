@@ -22,3 +22,13 @@
     owner
   }
 }`
+
+**Query**: 
+`{{
+  dsa(id: "0x54f607e8b7190bcdF7Fb9a030B5E8F48ac0A25c9") {
+    id
+    version
+    address
+    owner
+  }
+}`
