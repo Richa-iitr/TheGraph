@@ -1,5 +1,7 @@
 ## TheGraph
 
+Deployed to hosted-service for Matic: [Query here](https://api.thegraph.com/subgraphs/name/richa-iitr/dsa)
+
 **Query**: 
 `{
   dsas(first: 5) {
