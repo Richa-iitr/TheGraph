@@ -28,10 +28,12 @@ Deployed to hosted-service for Matic: [Query here](https://api.thegraph.com/subg
 
 **Query**: 
 `{
-  dsa(id: "0x54f607e8b7190bcdF7Fb9a030B5E8F48ac0A25c9") {
+  dsas(where {address: "0x54f607e8b7190bcdF7Fb9a030B5E8F48ac0A25c9"}) {
     id
     version
     address
     owner
   }
 }`
+![Screenshot from 2022-05-21 06-58-38](https://user-images.githubusercontent.com/76250660/169629251-0203f786-de3d-45bc-a73b-c1ed7a049c22.png)
+
