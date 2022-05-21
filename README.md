@@ -24,6 +24,7 @@ Deployed to hosted-service for Matic: [Query here](https://api.thegraph.com/subg
     owner
   }
 }`
+![Screenshot from 2022-05-21 06-52-32](https://user-images.githubusercontent.com/76250660/169629054-0fad3431-ad14-454f-8e08-15c8316abb7a.png)
 
 **Query**: 
 `{
