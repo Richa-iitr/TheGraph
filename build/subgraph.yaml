@@ -1,6 +1,6 @@
 specVersion: 0.0.5
 schema:
-  file: ./schema.graphql
+  file: schema.graphql
 dataSources:
   - kind: ethereum
     name: InstaIndex
@@ -17,15 +17,15 @@ dataSources:
         - Dsa
       abis:
         - name: InstaIndex
-          file: ./abis/InstaIndex.json
+          file: InstaIndex/abis/InstaIndex.json
         - name: InstaList
-          file: ./abis/InstaList.json
+          file: InstaIndex/abis/InstaList.json
         - name: InstaAccount
-          file: ./abis/InstaAccount.json
+          file: InstaIndex/abis/InstaAccount.json
       eventHandlers:
         - event: LogAccountCreated(address,indexed address,indexed address,indexed address)
           handler: handleLogAccountCreated
-      file: ./src/insta-index.ts
+      file: InstaIndex/InstaIndex.wasm
   - kind: ethereum
     name: InstaList
     network: mainnet
@@ -41,10 +41,10 @@ dataSources:
         - Dsa
       abis:
         - name: InstaList
-          file: ./abis/InstaList.json
+          file: InstaList/abis/InstaList.json
       callHandlers:
         - function: addAuth(address)
           handler: handleAddAuth
         - function: removeAuth(address)
           handler: handleRemoveAuth
-      file: ./src/insta-list.ts
+      file: InstaList/InstaList.wasm
