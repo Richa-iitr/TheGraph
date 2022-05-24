@@ -30,7 +30,7 @@ dataSources:
     name: InstaAccountModified
     network: matic
     source:
-      address: "0x28846f4051EB05594B3fF9dE76b7B5bf00431155"
+      address: "0x54f607e8b7190bcdF7Fb9a030B5E8F48ac0A25c9"
       abi: InstaAccountModified
       startBlock: 12795200
     mapping:
