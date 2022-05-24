@@ -6,4 +6,3 @@ type Dsa @entity {
   owner: Bytes! # address
   auths: [Bytes!]!
 }
-

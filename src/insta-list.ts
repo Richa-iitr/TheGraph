@@ -7,34 +7,38 @@ import {
 import { Dsa } from "../generated/schema";
 
 export function handleAddAuth(call: AddAuth): void {
-  let id = call.transaction.from.toHexString();
-  log.info("transaction Hash: ", [call.transaction.hash.toHexString()]);
+  let id = call.to.toHexString();
+  log.info("call address: {} ", [call.to.toHexString()]);
+  log.info("transaction Hash: {}", [call.transaction.hash.toHexString()]);
+  log.info("transaction from: {}", [call.to.toHexString()]);
   let dsa = Dsa.load(id);
   if (dsa == null) {
-    dsa = new Dsa(id);
-    dsa.auths = [];
-    dsa.owner = call.transaction.from;
-    dsa.address = new Address(0);
-    dsa.version = BigInt.fromI32(0);
-    dsa.accountID = BigInt.fromI32(0);
+    // dsa = new Dsa(id);
+    // dsa.auths = [];
+    // dsa.owner = call.inputs._owner;
+    // dsa.address = call.transaction.from;
+    // dsa.version = BigInt.fromI32(0);
+    // dsa.accountID = BigInt.fromI32(0);
+    log.info("No dsa found, id: {}", [id]);
+    return;
   }
   let owners = dsa.auths;
-  owners.push(call.inputs._owner);
+  let index = owners.indexOf(call.inputs._owner);
+  if (index == -1) {
+    owners.push(call.inputs._owner);
+  }
   dsa.auths = owners;
   dsa.save();
 }
 
 export function handleRemoveAuth(call: RemoveAuth): void {
-  let id = call.transaction.from.toHexString();
+  let id = call.to.toHexString();
+  log.info("call address: {} ", [call.to.toHexString()]);
+  log.info("transaction Hash: {}", [call.transaction.hash.toHexString()]);
+  log.info("call from: {}", [call.from.toHexString()]);
   let dsa = Dsa.load(id);
   if (dsa == null) {
-    // dsa = new Dsa(id);
-    // dsa.auths = [call.inputs._owner];
-    // dsa.owner = call.transaction.from;
-    // dsa.address = new Address(0);
-    // dsa.version = BigInt.fromI32(0);
-    // dsa.accountID = BigInt.fromI32(0);
-    log.info("DSA-doesn't-exist: ", [id]);
+    log.info("DSA-doesn't-exist: {}", [id]);
     return;
   }
   let owners = dsa.auths;
