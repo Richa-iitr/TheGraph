@@ -16,9 +16,9 @@ export function handleLogAccountCreated(event: LogAccountCreated): void {
   let instaList = InstaList.bind(contract.list());
   let accountId = instaList.accountID(event.params.account);
 
-  let dsa = Dsa.load(event.transaction.from.toHexString());
+  let dsa = Dsa.load(event.params.account.toHexString());
   if (dsa == null) {
-    dsa = new Dsa(event.transaction.from.toHexString());
+    dsa = new Dsa(event.params.account.toHexString());
     dsa.auths = [];
   }
 
