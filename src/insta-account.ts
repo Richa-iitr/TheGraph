@@ -1,4 +1,10 @@
-import { Address, BigInt, Bytes, log } from "@graphprotocol/graph-ts";
+import {
+  Address,
+  BigInt,
+  Bytes,
+  dataSource,
+  log,
+} from "@graphprotocol/graph-ts";
 import {
   InstaAccountModified,
   LogDisableUser,
@@ -9,19 +15,13 @@ import {
 import { Dsa } from "../generated/schema";
 
 export function handleLogEnableUser(event: LogEnableUser): void {
-  let to = event.transaction.to;
+  let context = dataSource.context();
+  let id = context.getString("dsa");
   log.info("transaction hash: {} and from: {} ", [
     event.transaction.hash.toHexString(),
     event.transaction.from.toHexString(),
   ]);
-  if (!to) {
-    to = event.address;
-    log.info("event.address: {}", [event.address.toHexString()]);
-  } else {
-    log.info("to: {} ", [to.toHexString()]);
-  }
-  let id = to.toHexString();
-  log.info("transaction Hash: ", [event.transaction.hash.toHexString()]);
+  log.info("ID: {}", [id]);
   let dsa = Dsa.load(id);
   if (dsa == null) {
     dsa = new Dsa(id);
@@ -41,18 +41,13 @@ export function handleLogEnableUser(event: LogEnableUser): void {
 }
 
 export function handleLogDisableUser(event: LogDisableUser): void {
-  let to = event.transaction.to;
+  let context = dataSource.context();
+  let id = context.getString("dsa");
   log.info("transaction hash: {} and from: {} ", [
     event.transaction.hash.toHexString(),
     event.transaction.from.toHexString(),
   ]);
-  if (!to) {
-    to = event.address;
-    log.info("event.address: {}", [event.address.toHexString()]);
-  } else {
-    log.info("to: {} ", [to.toHexString()]);
-  }
-  let id = to.toHexString();
+  log.info("ID: {}", [id]);
   let dsa = Dsa.load(id);
   if (dsa == null) {
     // dsa = new Dsa(id);
@@ -74,19 +69,13 @@ export function handleLogDisableUser(event: LogDisableUser): void {
 }
 
 export function handleEnableUser(event: LogEnable): void {
-  let to = event.transaction.to;
+  let context = dataSource.context();
+  let id = context.getString("dsa");
   log.info("transaction hash: {} and from: {} ", [
     event.transaction.hash.toHexString(),
     event.transaction.from.toHexString(),
   ]);
-  if (!to) {
-    to = event.address;
-    log.info("event.address: {}", [event.address.toHexString()]);
-  } else {
-    log.info("to: {} ", [to.toHexString()]);
-  }
-  let id = to.toHexString();
-  log.info("transaction Hash: ", [event.transaction.hash.toHexString()]);
+  log.info("ID: {}", [id]);
   let dsa = Dsa.load(id);
   if (dsa == null) {
     dsa = new Dsa(id);
@@ -106,18 +95,13 @@ export function handleEnableUser(event: LogEnable): void {
 }
 
 export function handleDisableUser(event: LogDisable): void {
-  let to = event.transaction.to;
+  let context = dataSource.context();
+  let id = context.getString("dsa");
   log.info("transaction hash: {} and from: {} ", [
     event.transaction.hash.toHexString(),
     event.transaction.from.toHexString(),
   ]);
-  if (!to) {
-    to = event.address;
-    log.info("event.address: {}", [event.address.toHexString()]);
-  } else {
-    log.info("to: {} ", [to.toHexString()]);
-  }
-  let id = to.toHexString();
+  log.info("ID: {}", [id]);
   let dsa = Dsa.load(id);
   if (dsa == null) {
     // dsa = new Dsa(id);
