@@ -13,7 +13,7 @@ Queries can be made for:
 **Query Results**:
 
 <pre>{ 
-  dsas(first: 5) {
+  dsas(where: {accountID: 12) {
     id 
     version 
     accountID
@@ -22,5 +22,12 @@ Queries can be made for:
     owner 
   }
 }</pre>
+
+![Screenshot from 2022-05-25 22-52-53](https://user-images.githubusercontent.com/76250660/170325757-42ff25bc-4705-419e-8203-21f5ed6affda.png)
+
+_Result from InstaList contract:_
+
+![Screenshot from 2022-05-25 22-54-19](https://user-images.githubusercontent.com/76250660/170326002-5cf486d1-1b70-45db-b902-bca626718665.png)
+
 
 
