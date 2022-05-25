@@ -1,6 +1,6 @@
 ## DSA Subgraph 
 
-Query the subgraph (Matic deployment): https://thegraph.com/hosted-service/subgraph/richa-iitr/dsa?selected=playground <br>
+Query the subgraph (Matic deployment): 
 Pending Version: https://thegraph.com/hosted-service/subgraph/richa-iitr/dsa?version=pending
 
 Queries can be made for: 
