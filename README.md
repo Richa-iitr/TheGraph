@@ -1,8 +1,17 @@
-## TheGraph
+## DSA Subgraph
 
-Deployed to hosted-service for Matic: [Query here](https://api.thegraph.com/subgraphs/name/richa-iitr/dsa)
+Query the subgraph: https://thegraph.com/hosted-service/subgraph/richa-iitr/dsa?selected=playground <br>
+Pending Version: https://thegraph.com/hosted-service/subgraph/richa-iitr/dsa?version=pending
 
-**Query**: 
+Queries can be made for: 
+- `accountID`: Account ID of the DSA
+- `address`: Address of the DSA
+- `version`: Version of the DSA
+- `auths`: The owners of the DSA
+- `owner`: Owner of a DSA (returns a single owner of DSA)
+
+Query Results:
+
 <pre>{ 
   dsas(first: 5) {
     id 
@@ -12,28 +21,4 @@ Deployed to hosted-service for Matic: [Query here](https://api.thegraph.com/subg
   }
 }</pre>
 
-![Screenshot from 2022-05-21 00-04-36](https://user-images.githubusercontent.com/76250660/169591595-6de6db5d-30a6-4ffe-b6ed-2b6ee304aeba.png)
-![Screenshot from 2022-05-21 00-04-45](https://user-images.githubusercontent.com/76250660/169591612-9d5884db-2d01-4ece-8ecc-81411130ea2f.png)
-
-**Query**: 
-<pre>{
-  dsas(where: {owner: "0xc36142c497053c42BDAa14737bf80e71daa984C5"}) {
-    id
-    version
-    address
-    owner
-  }
-}</pre>
-![Screenshot from 2022-05-21 06-52-32](https://user-images.githubusercontent.com/76250660/169629054-0fad3431-ad14-454f-8e08-15c8316abb7a.png)
-
-**Query**: 
-<pre>{
-  dsas(where {address: "0x54f607e8b7190bcdF7Fb9a030B5E8F48ac0A25c9"}) {
-    id
-    version
-    address
-    owner
-  }
-}</pre>
-![Screenshot from 2022-05-21 06-58-38](https://user-images.githubusercontent.com/76250660/169629251-0203f786-de3d-45bc-a73b-c1ed7a049c22.png)
 

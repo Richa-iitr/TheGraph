@@ -1,6 +1,8 @@
 type Dsa @entity {
   id: ID!
   version: BigInt!
+  accountID: BigInt!
   address: Bytes! # address
   owner: Bytes! # address
+  auths: [Bytes!]!
 }
