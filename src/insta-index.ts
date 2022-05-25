@@ -16,9 +16,11 @@ import { InstaAccountModified } from "../generated/templates";
 
 export function handleLogAccountCreated(event: LogAccountCreated): void {
   // event LogAccountCreated(address sender, address indexed owner, address indexed account, address indexed origin);
+
   let context = new DataSourceContext();
   context.setString("dsa", event.params.account.toHexString());
   InstaAccountModified.createWithContext(event.params.account, context);
+  //binding the contracts
   let contract = InstaIndex.bind(event.address);
   let instaAccount = InstaAccount.bind(event.params.account);
   let instaList = InstaList.bind(contract.list());
@@ -36,20 +38,6 @@ export function handleLogAccountCreated(event: LogAccountCreated): void {
   dsa.accountID = accountId;
 
   let owners = dsa.auths;
-  // let accountLink = instaList.accountLink(dsa.accountID);
-  // let next = accountLink.getFirst();
-  // let last = accountLink.getLast();
-  // let num_of_owners: BigInt = accountLink.getCount();
-
-  // let i: BigInt = BigInt.fromI32(1);
-  // while (true) {
-  //   owners.push(next);
-  //   num_of_owners.minus(BigInt.fromI32(1));
-  //   if (next == last || num_of_owners.equals(BigInt.fromI32(0))) {
-  //     break;
-  //   }
-  //   next = instaList.accountList(dsa.accountID, next).getNext();
-  // }
   owners.push(event.params.owner);
   dsa.auths = owners;
 

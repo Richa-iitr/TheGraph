@@ -51,25 +51,3 @@ templates:
         - event: LogDisable(indexed address)
           handler: handleDisableUser
       file: ./src/insta-account.ts
-  # - kind: ethereum
-  #   name: InstaList
-  #   network: matic
-  #   source:
-  #     address: "0x839c2D3aDe63DF5b0b8F3E57D5e145057Ab41556"
-  #     abi: InstaList
-  #     startBlock: 12795200
-  #   mapping:
-  #     kind: ethereum/events
-  #     apiVersion: 0.0.5
-  #     language: wasm/assemblyscript
-  #     entities:
-  #       - Dsa
-  #     abis:
-  #       - name: InstaList
-  #         file: ./abis/InstaList.json
-  #     callHandlers:
-  #       - function: addAuth(address)
-  #         handler: handleAddAuth
-  #       - function: removeAuth(address)
-  #         handler: handleRemoveAuth
-  #     file: ./src/insta-list.ts

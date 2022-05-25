@@ -1,6 +1,6 @@
-## DSA Subgraph
+## DSA Subgraph 
 
-Query the subgraph: https://thegraph.com/hosted-service/subgraph/richa-iitr/dsa?selected=playground <br>
+Query the subgraph (Matic deployment): https://thegraph.com/hosted-service/subgraph/richa-iitr/dsa?selected=playground <br>
 Pending Version: https://thegraph.com/hosted-service/subgraph/richa-iitr/dsa?version=pending
 
 Queries can be made for: 
@@ -10,13 +10,15 @@ Queries can be made for:
 - `auths`: The owners of the DSA
 - `owner`: Owner of a DSA (returns a single owner of DSA)
 
-Query Results:
+**Query Results**:
 
 <pre>{ 
   dsas(first: 5) {
     id 
     version 
+    accountID
     address 
+    auths
     owner 
   }
 }</pre>
