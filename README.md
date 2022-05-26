@@ -8,7 +8,7 @@ Queries can be made for:
 - `address`: Address of the DSA
 - `version`: Version of the DSA
 - `auths`: The owners of the DSA
-- `owner`: Owner of a DSA (returns a single owner of DSA)
+- `owner`: Creator of the DSA
 
 **Query Results**:
 
