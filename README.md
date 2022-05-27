@@ -1,7 +1,7 @@
 ## DSA Subgraph 
 
-Query the subgraph (Matic deployment): <br>
-Pending Version: https://thegraph.com/hosted-service/subgraph/richa-iitr/dsa?version=pending
+Query the subgraph (Matic deployment): https://thegraph.com/hosted-service/subgraph/richa-iitr/dsa?selected=playground<br>
+<!-- Pending Version: https://thegraph.com/hosted-service/subgraph/richa-iitr/dsa?version=pending -->
 
 Queries can be made for: 
 - `accountID`: Account ID of the DSA
