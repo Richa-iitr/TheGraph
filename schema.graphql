@@ -1,4 +1,4 @@
-type Dsa @entity {
+type DSA @entity {
   # unique ID to identify the dsa
   id: ID!
   # DSA version
@@ -6,9 +6,18 @@ type Dsa @entity {
   # DSA ID
   accountID: BigInt!
   # Address of the DSA
-  address: Bytes! # address
+  address: Bytes!
   # DSA owner, created the DSA
-  owner: Bytes! # address
+  creator: Bytes!
   # All owners of the DSA
   auths: [Bytes!]!
+}
+
+type User @entity {
+  # user address
+  id: ID!
+  # address of the user 
+  address: Bytes!
+  # DSAs owned by the user
+  DSAs: [DSA!]!
 }

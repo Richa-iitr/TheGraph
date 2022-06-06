@@ -11,7 +11,7 @@ import {
 } from "../generated/InstaIndex/InstaIndex";
 import { InstaList } from "../generated/InstaList/InstaList";
 import { InstaAccount } from "../generated/undefined/InstaAccount";
-import { Dsa } from "../generated/schema";
+import { Dsa, User } from "../generated/schema";
 import { InstaAccountModified } from "../generated/templates";
 
 export function handleLogAccountCreated(event: LogAccountCreated): void {

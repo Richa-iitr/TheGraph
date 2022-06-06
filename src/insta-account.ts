@@ -12,7 +12,7 @@ import {
   LogDisable,
   LogEnable,
 } from "../generated/InstaAccountModified/InstaAccountModified";
-import { Dsa } from "../generated/schema";
+import { Dsa, User } from "../generated/schema";
 
 export function handleLogEnableUser(event: LogEnableUser): void {
   let context = dataSource.context();
@@ -42,6 +42,15 @@ export function handleLogEnableUser(event: LogEnableUser): void {
   dsa.auths = owners;
 
   dsa.save();
+
+  let user = User.load(event.params.user.toHexString());
+  if (user == null) {
+    user = new Dsa(event.params.user.toHexString());
+    user.address = event.params.user;
+    user.DSAs = [];
+  }
+  let dsas = user.DSAs;
+  
 }
 
 export function handleLogDisableUser(event: LogDisableUser): void {
