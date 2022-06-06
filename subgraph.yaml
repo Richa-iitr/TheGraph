@@ -1,22 +1,55 @@
-specVersion: 0.0.1
+specVersion: 0.0.5
 schema:
   file: ./schema.graphql
 dataSources:
   - kind: ethereum
-    name: undefined
+    name: InstaIndex
     network: mainnet
     source:
-      address: "0xFE02a32Cbe0CB9ad9A945576A5bb53A3C123A3A3"
-      abi: InstaAccountV2
+      address: "0x2971AdFa57b20E5a416aE5a708A8655A9c74f723"
+      abi: InstaIndex
+      startBlock: 9000000
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5
       language: wasm/assemblyscript
       entities:
-
+        - User
+        - Dsa
       abis:
-        - name: InstaAccountV2
-          file: ./abis/InstaAccountV2.json
+        - name: InstaIndex
+          file: ./abis/InstaIndex.json
+        - name: InstaList
+          file: ./abis/InstaList.json
+        - name: InstaAccount
+          file: ./abis/InstaAccount.json
       eventHandlers:
-
-      file: ./src/insta-account-v-2.ts
+        - event: LogAccountCreated(address,indexed address,indexed address,indexed address)
+          handler: handleLogAccountCreated
+      file: ./src/insta-index.ts
+templates:
+  - kind: ethereum/contract
+    name: InstaAccountModified
+    network: mainnet
+    source:
+      abi: InstaAccountModified
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - User
+        - Dsa
+      abis:
+        - name: InstaAccountModified
+          file: ./abis/InstaAccountModified.json
+      eventHandlers:
+        - event: LogEnableUser(indexed address)
+          handler: handleLogEnableUser
+        - event: LogDisableUser(indexed address)
+          handler: handleLogDisableUser
+        - event: LogEnable(indexed address)
+          handler: handleEnableUser
+        - event: LogDisable(indexed address)
+          handler: handleDisableUser
+      file: ./src/insta-account.ts

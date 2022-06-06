@@ -1,0 +1,7 @@
+type User @entity {
+  # User address
+  id: ID!
+  address: Bytes!
+  count: BigInt!
+  dsas: [Bytes!]!
+}

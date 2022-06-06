@@ -1,5 +1,11 @@
-type ExampleEntity @entity {
+type User @entity {
+  # User address
   id: ID!
-  block: Bytes!
+  address: Bytes!
   count: BigInt!
+  DSAs: [Bytes!]!
 }
+
+type 
+
+
